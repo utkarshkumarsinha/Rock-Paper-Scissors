@@ -1,1 +1,161 @@
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.title {
+  font-size: 2.7rem;
+  color: #00f7ff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 0 0 10px #00f7ff99;
+  animation: fadeInDown 1s ease-in-out;
+}
+button {
+  padding: 0.7rem 1.4rem;
+  border: none;
+  background: #2b2d42;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+}
+button:hover {
+  background: #3d4160;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #00f7ffaa;
+}
+button:active {
+  transform: scale(0.98);
+}
+.score-board {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  font-size: 1.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: 1px solid #ffffff22;
+}
+.badge {
+  background: #00f7ff;
+  color: #1f1f2e;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 0 8px #00f7ffcc;
+}
+.choices {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.choice {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.choice img {
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid #00f7ff30;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px transparent;
+}
+.choice:hover img {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px #00f7ffcc;
+  border-color: #00f7ff;
+}
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease forwards;
+}
+.modal-content {
+  background: rgba(255, 255, 255, 0.07);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px #00f7ff55;
+  border: 1px solid #ffffff22;
+  animation: scaleIn 0.3s ease-out;
+}
+.text-win {
+  color: #00ff88;
+  text-shadow: 0 0 10px #00ff88aa;
+}
+.text-lose {
+  color: #ff4c4c;
+  text-shadow: 0 0 10px #ff4c4caa;
+}
+.close {
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  cursor: pointer;
+  background: url('https://cdn-icons-png.flaticon.com/512/1828/1828774.png') no-repeat center;
+  background-size: contain;
+  margin-bottom: 1rem;
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  } to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  } to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media (max-width: 600px) {
+  .choices {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .choice img {
+    width: 75px;
+  }
+  .score-board {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+}
